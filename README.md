@@ -15,4 +15,18 @@ editor, I feel you.
 This is why I wrote this little script, it syncs-on-save a local file with a
 PR/Issue/Comment/Gist.
 
-See more in [`./gh-edit`](./gh-edit) or with `gh edit -h`.
+## Install
+
+```bash
+gh extension install nobe4/gh-edit
+```
+
+## Usage
+
+`$EDITOR` environment variable must be set.
+
+```bash
+gh edit URL FILE
+```
+
+See support in [`./gh-edit`](./gh-edit) or with `gh edit -h`.
