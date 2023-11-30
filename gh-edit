@@ -7,6 +7,7 @@
 #/ Requirements:
 #/   - bash
 #/   - gh
+#/   - pbpaste
 #/
 #/ Flags:
 #/   -h    Show this help
