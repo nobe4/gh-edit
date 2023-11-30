@@ -3,10 +3,6 @@
 #/
 #/  Edit Issues, PRs, Comments and Gists locally
 #/
-#/  It's like https://cli.github.com/manual/gh_gist_edit but better:
-#/    - Update on save
-#/    - Support more fields
-#/
 #/ Requirements:
 #/   - bash
 #/   - gh
