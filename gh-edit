@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#VERSION 0.0.0
 #/ Usage: gh-edit [FLAGS] [URL [FILE]]
 #/
 #/  Edit Issues, PRs, Comments and Gists locally
@@ -8,7 +9,8 @@
 #/   - gh
 #/
 #/ Flags:
-#/   -h   Show this help
+#/   -h    Show this help
+#/   -v    Show the version
 #/
 #/ Arguments:
 #/   FILE  Path to local file to use.
@@ -39,6 +41,9 @@ set -e
 
 show_help() { grep ^#/ <"${0}" | cut -c4-; }
 [[ "$*" == "-h" ]] && show_help && exit 0
+
+show_version() { grep ^#VERSION <"${0}" | cut -d' ' -f2; }
+[[ "$*" == "-v" ]] && show_version && exit 0
 
 input="${1}"
 
