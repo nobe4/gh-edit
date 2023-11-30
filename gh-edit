@@ -59,10 +59,12 @@ if [[ "${input}" == "" ]]; then
 	read -r input
 fi
 
+url="${input:-"${default}"}"
+
 regexp_github="https://github.com/([^/]+)/([^/]+)/([^/]+)/([^#]+)#?([^0-9_\-]+)?[_-]?r?([0-9]+)?"
 regexp_gist="https://gist.github.com/([^/]+)/(.+)"
 
-if [[ "${input}" =~ ${regexp_github} ]]; then
+if [[ "${url}" =~ ${regexp_github} ]]; then
 	owner="${BASH_REMATCH[1]}"
 	repo="${BASH_REMATCH[2]}"
 	type="${BASH_REMATCH[3]}"
@@ -70,7 +72,7 @@ if [[ "${input}" =~ ${regexp_github} ]]; then
 	field="${BASH_REMATCH[5]:-body}"
 	field_id="${BASH_REMATCH[6]}"
 	file="${2:-$(mktemp -d)/${owner}-${repo}-${type}-${id}.md}"
-elif [[ "${input}" =~ ${regexp_gist} ]]; then
+elif [[ "${url}" =~ ${regexp_gist} ]]; then
 	type="gist"
 	owner="${BASH_REMATCH[1]}"
 	id="${BASH_REMATCH[2]}"
@@ -78,7 +80,7 @@ elif [[ "${input}" =~ ${regexp_gist} ]]; then
 	field_id="$(gh api "/gists/${id}" -q '.files.[].filename' | head -n1)"
 	file="${2:-$(mktemp -d)/${field_id}}"
 else
-	echo "${input} didn't match"
+	echo "${url} didn't match"
 	exit 1
 fi
 
