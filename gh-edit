@@ -132,4 +132,4 @@ echo "Waiting a sec for exit save"
 sleep 1
 
 kill "${watch_pid}"
-wait "${watch_pid}" 2>/dev/null
+wait "${watch_pid}" 2>/dev/null || true
