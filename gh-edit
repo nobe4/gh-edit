@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#VERSION 0.0.0
+#VERSION 0.0.1
 #/ Usage: gh-edit [FLAGS] [URL [FILE]]
 #/
 #/  Edit Issues, PRs, Comments and Gists locally
